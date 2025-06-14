@@ -8,6 +8,8 @@ This is a Virtual Teaching Assistant API project for the **Tools in Data Science
 
 actual one 
 http://127.0.0.1:8000
+render website 
+https://tds-api-solution.onrender.com
 
 
 ### Method: `POST`
