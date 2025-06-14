@@ -7,6 +7,10 @@ from starlette.responses import JSONResponse
 
 app = FastAPI()
 
+@app.get("/")
+def root():
+    return {"message": "App is working"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -18,6 +22,7 @@ app.add_middleware(
 class QuestionRequest(BaseModel):
     question: str
     image: Optional[str] = None
+
 
 def dummy_search(question: str) -> dict:
     if "gpt-3.5-turbo-0125" in question:
