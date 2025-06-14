@@ -3,7 +3,7 @@ description: "TDS Virtual TA Project Sample (but not the actual evaluation) Ques
 providers:
   - id: https
     config:
-      url: https://app.example.com/api/ 
+      url: https://tds-api-solution.onrender.com/api/  # ✅ fixed endpoint
       method: POST
       headers:
         Content-Type: application/json
@@ -14,7 +14,6 @@ providers:
         }
       transformResponse: json
 
-# Ensure JSON schema
 defaultTest:
   assert:
     - type: is-json
@@ -55,6 +54,7 @@ tests:
       - type: contains
         transform: JSON.stringify(output.links)
         value: https://discourse.onlinedegree.iitm.ac.in/t/ga4-data-sourcing-discussion-thread-tds-jan-2025/165959
+
   - vars:
       question: I know Docker but have not used Podman before. Should I use Docker for this course?
     assert:
@@ -67,6 +67,7 @@ tests:
       - type: contains
         transform: JSON.stringify(output.links)
         value: https://tds.s-anand.net/#/docker
+
   - vars:
       question: When is the TDS Sep 2025 end-term exam?
     assert:
