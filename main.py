@@ -4,7 +4,7 @@ from starlette.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List, Optional
 
-def dummy_search(question: str) -> dict:
+def dummy_search(question: q) -> dict:
     if "gpt-3.5" in q or "gpt-4o-mini" in q:
         return {
             "answer": "You must use `gpt-3.5-turbo-0125`, even if the AI Proxy only supports `gpt-4o-mini`. Use the OpenAI API directly for this question.",
