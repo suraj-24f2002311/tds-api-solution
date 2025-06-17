@@ -110,7 +110,7 @@ def dummy_search(question: str) -> dict:
         }
     else:
         return {
-            "answer": "Sorry, I couldn't find a direct answer to your question. Please check the course Discourse or syllabus.",
+            "answer": "Sorry user , I couldn't find a direct answer to your question. Please check the course Discourse or syllabus.",
             "links": []
         }
 
