@@ -6,9 +6,10 @@ This is a Virtual Teaching Assistant API project for the **Tools in Data Science
 
 ## API Endpoint
 
-actual one 
+#### Local page:-
 http://127.0.0.1:8000
-render website 
+
+#### Render website : - 
 https://tds-api-solution.onrender.com
 
 
@@ -17,31 +18,52 @@ https://tds-api-solution.onrender.com
 ## Request format (JSON):
 
 json
+
 {
+
   "question": "Should I use gpt-4o-mini which AI proxy supports, or gpt3.5 turbo?",
+
   "image": "base64-encoded image string "
+
 }
 
 # curl command example
 curl "https://tds-api-solution.onrender.com" \
+
   -H "Content-Type: application/json" \
+  
   -d "{\"question\": \"Should I use gpt-4o-mini which AI proxy supports, or gpt3.5 turbo?\", \"image\": \"$(base64 -w0 project-tds-virtual-ta-q1.webp)\"}"
 
 
 
 # response 
+
 {
+
   "answer": "You must use `gpt-3.5-turbo-0125`, even if the AI Proxy only supports `gpt-4o-mini`. Use the OpenAI API directly for this question.",
+
   "links": [
+  
     {
+    
       "url": "https://discourse.onlinedegree.iitm.ac.in/t/ga5-question-8-clarification/155939/4",
+      
       "text": "Use the model that’s mentioned in the question."
+    
     },
+    
     {
+     
       "url": "https://discourse.onlinedegree.iitm.ac.in/t/ga5-question-8-clarification/155939/3",
-      "text": "My understanding is that you just have to use a tokenizer, similar to what Prof. Anand used, to get the number of tokens and multiply that by the given rate."
+      
+      "text": "My understanding is that you just have to use a tokenizer, similar to what Prof. Anand used, to get the number of tokens and multiply that by the 
+      
+    given rate."
+    
     }
+  
   ]
+
 }
 
 
