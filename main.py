@@ -4,7 +4,24 @@ from starlette.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List, Optional
 
-def dummy_search(question: q) -> dict:
+app = FastAPI()
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+class QuestionRequest(BaseModel):
+    question: str
+    image: Optional[str] = None
+
+def dummy_search(q: str) -> dict:
+    q = q.lower()
+
     if "gpt-3.5" in q or "gpt-4o-mini" in q:
         return {
             "answer": "You must use `gpt-3.5-turbo-0125`, even if the AI Proxy only supports `gpt-4o-mini`. Use the OpenAI API directly for this question.",
@@ -81,7 +98,7 @@ def dummy_search(question: q) -> dict:
             ]
         }
 
-    elif "login issue" in q or "can’t login" in q:
+    elif "login issue" in q or "can’t login" in q or "can't login" in q:
         return {
             "answer": "If you're unable to login, please try resetting your password or contact support through the official help desk.",
             "links": [
@@ -108,25 +125,11 @@ def dummy_search(question: q) -> dict:
                 }
             ]
         }
-    else:
-        return {
-            "answer": "Sorry user , I couldn't find a direct answer to your question. Please check the course Discourse or syllabus.",
-            "links": []
-        }
 
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-class QuestionRequest(BaseModel):
-    question: str
-    image: Optional[str] = None
+    return {
+        "answer": "Sorry, I couldn't find a direct answer to your question. Please check the course Discourse or syllabus.",
+        "links": []
+    }
 
 @app.post("/api/")
 async def answer_question(request: QuestionRequest):
