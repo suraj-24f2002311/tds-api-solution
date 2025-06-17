@@ -37,7 +37,7 @@ def dummy_search(q: str) -> dict:
             ]
         }
 
-    if "10/10 on ga4" in q or ("ga4" in q and "bonus" in q and "dashboard" in q):
+    elif "10/10 on ga4" in q or ("ga4" in q and "bonus" in q and "dashboard" in q):
         return {
             "answer": "If a student scores 10/10 on GA4 and also gets the bonus, the dashboard will show it as 110.",
             "links": [
@@ -48,7 +48,7 @@ def dummy_search(q: str) -> dict:
             ]
         }
 
-    if "docker" in q and "podman" in q:
+    elif "docker" in q and "podman" in q:
         return {
             "answer": "We recommend using Podman for this course, but Docker is also acceptable if you’re already comfortable with it.",
             "links": [
@@ -59,7 +59,7 @@ def dummy_search(q: str) -> dict:
             ]
         }
 
-    if "install podman" in q or "podman command" in q:
+    elif "install podman" in q or "podman command" in q:
         return {
             "answer": "Use `sudo dnf install podman` for Fedora or `brew install podman` for Mac. Refer to official install docs.",
             "links": [
@@ -70,13 +70,13 @@ def dummy_search(q: str) -> dict:
             ]
         }
 
-    if "end-term exam" in q and "sep 2025" in q:
+    elif "end-term exam" in q and "sep 2025" in q:
         return {
             "answer": "Sorry, the TDS Sep 2025 end-term exam date is not available yet. Please check the official portal or wait for announcements.",
             "links": []
         }
 
-    if "ta mark" in q or "ta evaluation" in q or "how ta marks" in q:
+    elif "ta mark" in q or "ta evaluation" in q or "how ta marks" in q:
         return {
             "answer": "TA marks are given based on rubric-based evaluation. Please check the official guidelines on the portal.",
             "links": [
@@ -87,7 +87,7 @@ def dummy_search(q: str) -> dict:
             ]
         }
 
-    if "login issue" in q or "can't login" in q or "cannot login" in q or "not able to login" in q:
+    elif "login issue" in q or "can't login" in q or "cannot login" in q or "not able to login" in q:
         return {
             "answer": "If you're unable to login, please try resetting your password or contact support through the official help desk.",
             "links": [
@@ -98,7 +98,7 @@ def dummy_search(q: str) -> dict:
             ]
         }
 
-    if "recorded session" in q or "where is the recording" in q or "recording uploaded" in q:
+    elif "recorded session" in q or "where is the recording" in q or "recording uploaded" in q:
         return {
             "answer": "Recorded sessions are uploaded within 24 hours. Check the portal or the Announcements tab.",
             "links": [
@@ -109,13 +109,13 @@ def dummy_search(q: str) -> dict:
             ]
         }
 
-    if "assignment" in q and ("not visible" in q or "missing" in q or "cannot see" in q):
+    elif "assignment" in q and ("not visible" in q or "missing" in q or "cannot see" in q):
         return {
             "answer": "If a graded assignment is missing or not visible, check the schedule and make sure you've met the prerequisites. If the problem persists, contact the TA via Discourse.",
             "links": []
         }
 
-    if "how to start" in q or "getting started" in q or "begin course" in q or "start course" in q:
+    elif "how to start" in q or "getting started" in q or "begin course" in q or "start course" in q:
         return {
             "answer": "You can get started by reading the syllabus and completing the first graded assignment. Also, join the Discourse forum to stay updated.",
             "links": [
