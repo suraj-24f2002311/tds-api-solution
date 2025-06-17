@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 def dummy_search(question: str) -> dict:
-    if "gpt-3.5-turbo-0125" in question:
+    if "gpt-3.5" in q or "gpt-4o-mini" in q:
         return {
             "answer": "You must use `gpt-3.5-turbo-0125`, even if the AI Proxy only supports `gpt-4o-mini`. Use the OpenAI API directly for this question.",
             "links": [
@@ -15,34 +15,98 @@ def dummy_search(question: str) -> dict:
                 },
                 {
                     "url": "https://discourse.onlinedegree.iitm.ac.in/t/ga5-question-8-clarification/155939/3",
-                    "text": "My understanding is that you just have to use a tokenizer, similar to what Prof. Anand used."
+                    "text": "Clarification on GPT model usage."
                 }
             ]
         }
-    elif "dashboard" in question.lower():
+
+    elif "10/10 on ga4" in q or ("ga4" in q and "bonus" in q and "dashboard" in q):
         return {
-            "answer": "The dashboard will show '110' if you score 10/10 on GA4 and the bonus is applied.",
+            "answer": "If a student scores 10/10 on GA4 and also gets the bonus, the dashboard will show it as 110.",
             "links": [
                 {
-                    "url": "https://discourse.onlinedegree.iitm.ac.in/t/ga4-data-sourcing-discussion-thread-tds-jan-2025/165959/388",
-                    "text": "GA4 bonus discussion on Discourse."
+                    "url": "https://discourse.onlinedegree.iitm.ac.in/t/ga4-data-sourcing-discussion-thread-tds-jan-2025/165959",
+                    "text": "GA4 scoring clarification."
                 }
             ]
         }
-    elif "docker" in question.lower() and "podman" in question.lower():
+
+    elif "docker" in q and "podman" in q:
         return {
-            "answer": "We recommend using Podman for this course, although Docker will also work.",
+            "answer": "We recommend using Podman for this course, but Docker is also acceptable if you’re already comfortable with it.",
             "links": [
                 {
                     "url": "https://tds.s-anand.net/#/docker",
-                    "text": "Docker and Podman info in the course."
+                    "text": "Course Docker/Podman Guide"
                 }
             ]
         }
-    elif "end-term" in question.lower():
+
+    elif "end-term exam" in q and "sep 2025" in q:
         return {
-            "answer": "We don't have that information at the moment. Please refer to the course announcements.",
+            "answer": "Sorry, the TDS Sep 2025 end-term exam date is not available yet. Please check the official portal or wait for announcements.",
             "links": []
+        }
+
+    elif "ta mark" in q or "ta evaluation" in q:
+        return {
+            "answer": "TA marks are given based on rubric-based evaluation. Please check the official guidelines on the portal.",
+            "links": [
+                {
+                    "url": "https://discourse.onlinedegree.iitm.ac.in/t/ta-evaluation-guidelines/160001",
+                    "text": "TA Evaluation Guide"
+                }
+            ]
+        }
+
+    elif "recorded session" in q:
+        return {
+            "answer": "Recorded sessions are uploaded within 24 hours. Check the portal or the Announcements tab.",
+            "links": [
+                {
+                    "url": "https://discourse.onlinedegree.iitm.ac.in/t/where-are-the-recorded-sessions/153621",
+                    "text": "Where to find recordings"
+                }
+            ]
+        }
+
+    elif "install podman" in q or "podman command" in q:
+        return {
+            "answer": "Use `sudo dnf install podman` for Fedora or `brew install podman` for Mac. Refer to official install docs.",
+            "links": [
+                {
+                    "url": "https://podman.io/getting-started/installation",
+                    "text": "Podman Installation Guide"
+                }
+            ]
+        }
+
+    elif "login issue" in q or "can’t login" in q:
+        return {
+            "answer": "If you're unable to login, please try resetting your password or contact support through the official help desk.",
+            "links": [
+                {
+                    "url": "https://onlinedegree.iitm.ac.in/helpdesk",
+                    "text": "Helpdesk Login Issues"
+                }
+            ]
+        }
+
+    elif "missing ga" in q or ("assignment" in q and "not visible" in q):
+        return {
+            "answer": "If a graded assignment is missing or not visible, check the schedule and make sure you've met the prerequisites. If the problem persists, contact the TA via Discourse.",
+            "links": []
+        }
+
+    elif "how to start" in q or "getting started" in q:
+        return {
+            "answer": "You can get started by reading the syllabus and completing the first graded assignment. Also, join the Discourse forum to stay updated.",
+            "links": [
+                {
+                    "url": "https://tds.s-anand.net",
+                    "text": "Course Portal"
+                }
+            ]
         }
     else:
         return {
