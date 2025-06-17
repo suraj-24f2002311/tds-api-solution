@@ -72,7 +72,8 @@ pip install -r requirements.txt
 
 # To run locally
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload 
-or you may just simply render the website and use curl command to get the answer because i dont know how to show
+
+or you may just simply render the website and use **curl** command to get the answer because other than fetching using HTML, CSS i don't have any other option to do this task with visual interaction.
 
 # Question this website respond
 figuring the aspects to cover students problem into major sub-problems
@@ -126,5 +127,5 @@ figuring the aspects to cover students problem into major sub-problems
 "Is there a discussion forum?"
 
 
-## bonus 
-MIT LICENCE for public use 
+## **LICENCE**
+**MIT LICENCE** for public use 
