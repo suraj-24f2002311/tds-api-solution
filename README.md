@@ -22,8 +22,8 @@ json
   "image": "base64-encoded image string "
 }
 
-# curl command 
-curl "http://127.0.0.1:8000" \
+# curl command example
+curl "https://tds-api-solution.onrender.com" \
   -H "Content-Type: application/json" \
   -d "{\"question\": \"Should I use gpt-4o-mini which AI proxy supports, or gpt3.5 turbo?\", \"image\": \"$(base64 -w0 project-tds-virtual-ta-q1.webp)\"}"
 
