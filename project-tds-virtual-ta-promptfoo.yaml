@@ -3,7 +3,7 @@ description: "TDS Virtual TA Project Sample (but not the actual evaluation) Ques
 providers:
   - id: https
     config:
-      url: https://tds-api-solution.onrender.com/api/  # ✅ fixed endpoint
+      url: https://tds-api-solution.onrender.com/api/  
       method: POST
       headers:
         Content-Type: application/json
